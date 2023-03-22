@@ -14,10 +14,9 @@ lyd$Group.1 <- factor(lyd$Group.1, levels = c('alpha ON-S/M4 | alpha ON-T','W3L2
 'C15','C19','F-midi-OFF','U-1','F-mini-OFF','W3D1 | W3L1 ','F-midi-ON'))
 
 #draw the heatmap
-ggplot(lyd, aes(x = Group, y = Pathway, fill= Converted)) +
+ggplot(lyd, aes(x = Group.1, y = Group.2, fill= AXON_DEVELOPMENT)) +
     geom_tile(color = "black",
-              lwd = 1,linetype = 1) + geom_text(aes(label = round(Converted,1), colours = 'black'))+
+              lwd = 1,linetype = 1) +
     scale_fill_gradient2(low = "#075AFF",
                          mid = "white",
-                         high = "#FF0000", midpoint = 1) +
-    coord_fixed() + theme_bw()
+                         high = "#FF0000", midpoint =2400) + theme_bw() + coord_fixed() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
