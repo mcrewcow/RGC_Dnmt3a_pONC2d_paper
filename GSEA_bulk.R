@@ -106,3 +106,9 @@ readr::write_tsv(
   file.path('C://Users/Emil/10X/Lydia_GSEA.tsv'
   )
 )
+
+#to visualize
+libraru(ggplot2)
+ggplot(lyd, aes(x = reorder(Pathway,Fold.Enrichment), y = Fold.Enrichment,  fill = c('red','red','red','red','red','red','red','red','red','red',
+'blue','blue','blue','blue','blue','blue','blue','blue','blue','blue'))) + geom_bar(stat = "identity",  color="black",) +
+geom_hline(yintercept=0, linetype="dashed", color = "black") + theme_bw() + theme(legend.position = 'none') + coord_flip() + ylim(-12,12)
