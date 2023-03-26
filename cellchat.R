@@ -17,3 +17,7 @@ cellchat <- computeCommunProbPathway(cellchat)
 cellchat <- aggregateNet(cellchat)
 cellchat <- netAnalysis_computeCentrality(cellchat, slot.name = "netP")
 cellchat_lydia_WT <- cellchat
+
+
+strwidth <- function(x) {0.02}
+netVisual_aggregate(cellchat_lydia_WT, signaling = c('FGF'), layout = "chord")
