@@ -16,6 +16,16 @@ colnames(ES2)[ncol(ES2)] <- "cluster"
 #find the averages per groups
 aggregate(ES2$GOBP_AXON_DEVELOPMENT, list(ES2$background), FUN=mean)
 
+#for WT/KO split
+ggplot(lyd, aes(x = Condition, y = Pathway, fill= Amount)) +
+    geom_tile(color = "black",
+              lwd = 1,linetype = 1) +
+    scale_fill_gradient2(low = "#075AFF",
+                         mid = "white",
+                         high = "#FF0000", midpoint = 1) + theme_bw() + coord_fixed() + geom_text(aes(label = round(Amount,1), colours = 'black'))
++ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#for RGC subtypes split
 lyd$Group.1 <- factor(lyd$Group.1, levels = c('alpha ON-S/M4 | alpha ON-T','W3L2 | F-RGC-novel | C44 | C35',
                                               'alpha OFF-S','alpha OFF-T | alpha ON-T','C10','C25 | C34','ooDSGC-D/V',
                                               'C24','C36','M1b | C27','T-RC-S1 | T-RGC-S2','U-3','MX | C37','ooDSGC-N',
