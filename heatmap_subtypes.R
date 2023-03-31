@@ -172,3 +172,68 @@ DotPlot(lyd_RGC, features = c('Serpine2Amigo2', 'Lypd1Ntrk1', 'Foxp2Irx4','Apela
                               'CartptCol25a1'), dot.scale = 10) 
 
 #change the order of RGCs to follow the expression + unknnown RGC subtypes
+
+
+lyd_RGC$annotation <- factor(lyd_RGC$annotation, levels = c('W3D1 | W3L1','W3D1','F-mini-ON','F-mini-OFF','T-RGC novel | C5','W3B',
+                                                           'C7','C8','C10','C11','ooDSGC-N','W3L2 | F-RGC-novel | C44 | C35',
+                                                           'C14','C15','ooDSGC-D/V','T-RC-S1 | T-RGC-S2','C18 | C37','C19','MX | C37',
+                                                           'W3D2 | W3D3','C24','C25 | C34','M1b | C27','F-midi-OFF',
+                                                            'C29','M1a | M2','C35','C36','F-midi-ON','alpha OFF-T | alpha ON-T',
+                                                            'alpha OFF-S','alpha ON-S/M4 | alpha ON-T','U-1','U-2','U-3'
+                                                           ))
+#T-RGC-novel, c20, c26, c34, c39
+p <- AverageExpression(lyd_RGC2, features = c('Serpine2','Amigo2','Lypd1','Ntrk1','Foxp2','Irx4','Pde1a',
+                                              'Tbr1','Pcdh20','Zic1','Tbx20','Tagln2','Prkcq',"Tac1",'Spp1','Slc7a11','Plpp4',
+                                              'Gpr88','Serpinb1b','Gm17750','Mmp17','Lypd1','Ntrk1','Cartpt','Vit','Apela','Col25a1',
+                                              'Pcdh20','4833423E24Rik','Penk','Prdm8','Slc24a2','Penk','Gal','Calca','Serpine2','Cdhr1',
+                                              'Prokr1','Fam19a4','Slc17a7','Igfbp5','Prkcg','Foxp2','Cdk15','Stxbp6','Prlr','Postn','Tbx20',
+                                              'Rhox5','Adcyap1','Opn4','Nmb','Tpbg','Igfbp4','Chrm2','Stxbp6','Coch','Ceacam10','Foxp2','Anxa3',
+                                              'Neurod2','S100b','Nmb','Kit','Fes','Il1rapl2','Bhlhe22','Fxyd6','Tpbg'), group.by = 'annotation', assay = 'SCT')
+
+DotPlot(lyd_RGC, features = c('Serpine2Amigo2', 'Lypd1mNtrk1',
+                              'Foxp2Irx4', 'Pde1a', 'Tbr1Pcdh20', 'Zic1',
+                              'Tbx20Tagln2','PrkcqTac1Spp1','Slc7a11Plpp4',
+                              'Gpr88','Serpinb1bGm17550','Mmp17','Lypd1Ntrk1',
+                              'CartptVit', 'Apela', 'CartptCol25a1','Tbr1Irx4',
+                              'Pcdh204833423E24Rik','PenkPrdm8Slc24a2','PenkGal',
+                              'Tbr1Calca','Serpine2Cdhr1','Prokr1','Fam19a4',
+                              'Slc17a7','PenkIgfbp5','Prkcg','Foxp2Cdk15','Stxbp6Prlr',
+                              'Postn','Tbx20Spp1','Rhox5','Adcyap1Opn4Nmb',
+                              'TpbgSpp1','Igfbp4Chrm2','Stxbp6Coch','Ceacam10',
+                              'Foxp2Anxa3','Neurod2S100b','Nmb','Spp1Kit',
+                              'Spp1Fes','Spp1Il1rapl2','Bhlhe22Fxyd6','Spp1Tpbg')) 
+library("tidyr")
+mine.long <- pivot_longer(data = lyd, 
+                           cols = -c(1),
+                          names_to = "Features_upd", 
+                          values_to = "Amount")
+
+mine.long$Features_upd <- factor(mine.long$Features_upd, levels = c('W3D1...W3L1','W3D1','F.mini.ON','F.mini.OFF','T.RGC.novel...C5','W3B',
+                                                            'C7','C8','C10','C11','ooDSGC.N','W3L2...F.RGC.novel...C44...C35',
+                                                            'C14','C15','ooDSGC.D.V','T.RC.S1...T.RGC.S2','C18...C37','C19','MX...C37',
+                                                            'W3D2...W3D3','C24','C25...C34','M1b...C27','F.midi.OFF',
+                                                            'C29','M1a...M2','C35','C36','F.midi.ON','alpha.OFF.T...alpha.ON.T',
+                                                            'alpha.OFF.S','alpha.ON.S.M4...alpha.ON.T','U.1','U.2','U.3'
+))
+
+mine.long$Features <- factor(mine.long$Features, levels = c('Serpine2Amigo2', 'Lypd1mNtrk1',
+                                                            'Foxp2Irx4', 'Pde1a', 'Tbr1Pcdh20', 'Zic1',
+                                                            'Tbx20Tagln2','PrkcqTac1Spp1','Slc7a11Plpp4',
+                                                            'Gpr88','Serpinb1bGm17550','Mmp17','Lypd1Ntrk1',
+                                                            'CartptVit', 'Apela', 'CartptCol25a1','Tbr1Irx4',
+                                                            'Pcdh204833423E24Rik','PenkPrdm8Slc24a2','PenkGal',
+                                                            'Tbr1Calca','Serpine2Cdhr1','Prokr1','Fam19a4',
+                                                            'Slc17a7','PenkIgfbp5','Prkcg','Foxp2Cdk15','Stxbp6Prlr',
+                                                            'Postn','Tbx20Spp1','Rhox5','Adcyap1Opn4Nmb',
+                                                            'TpbgSpp1','Igfbp4Chrm2','Stxbp6Coch','Ceacam10',
+                                                            'Foxp2Anxa3','Neurod2S100b','Nmb','Spp1Kit',
+                                                            'Spp1Fes','Spp1Il1rapl2','Bhlhe22Fxyd6','Spp1Tpbg'
+))
+
+ggplot(mine.long, aes(x = Features_upd, y = Features, fill = Amount)) +
+    geom_tile(color = "black",
+              lwd = 1,linetype = 1) +
+    scale_fill_gradient2(low = "#075AFF",
+                         mid = "white",
+                         high = "#FF0000", midpoint =0.5) + theme_bw() + coord_fixed() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
