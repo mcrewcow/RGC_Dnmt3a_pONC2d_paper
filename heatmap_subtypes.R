@@ -181,7 +181,7 @@ lyd_RGC$annotation <- factor(lyd_RGC$annotation, levels = c('W3D1 | W3L1','W3D1'
                                                             'C29','M1a | M2','C35','C36','F-midi-ON','alpha OFF-T | alpha ON-T',
                                                             'alpha OFF-S','alpha ON-S/M4 | alpha ON-T','U-1','U-2','U-3'
                                                            ))
-#T-RGC-novel, c20, c26, c34, c39
+# c20, c26, c34, c39 - missing in the analysis
 p <- AverageExpression(lyd_RGC2, features = c('Serpine2','Amigo2','Lypd1','Ntrk1','Foxp2','Irx4','Pde1a',
                                               'Tbr1','Pcdh20','Zic1','Tbx20','Tagln2','Prkcq',"Tac1",'Spp1','Slc7a11','Plpp4',
                                               'Gpr88','Serpinb1b','Gm17750','Mmp17','Lypd1','Ntrk1','Cartpt','Vit','Apela','Col25a1',
@@ -237,3 +237,12 @@ ggplot(mine.long, aes(x = Features_upd, y = Features, fill = Amount)) +
                          mid = "white",
                          high = "#FF0000", midpoint =0.5) + theme_bw() + coord_fixed() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+#Identified U-1, U-2, U-3. U-1 will be C19_2, U-2 > C8_2, U-3 > ooDSGC-D/V_2
+
+mine.long$Features_upd <- factor(mine.long$Features_upd, levels = c('W3D1...W3L1','W3D1','F.mini.ON','F.mini.OFF','T.RGC.novel...C5','W3B',
+                                                            'C7','U.2','C8','C10','C11','ooDSGC.N','W3L2...F.RGC.novel...C44...C35',
+                                                            'C14','C15','ooDSGC.D.V','U.3','T.RC.S1...T.RGC.S2','C18...C37','U.1','C19','MX...C37',
+                                                            'W3D2...W3D3','C24','C25...C34','M1b...C27','F.midi.OFF',
+                                                            'C29','M1a...M2','C35','C36','F.midi.ON','alpha.OFF.T...alpha.ON.T',
+                                                            'alpha.OFF.S','alpha.ON.S.M4...alpha.ON.T'
+))
