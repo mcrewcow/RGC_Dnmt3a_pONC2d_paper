@@ -246,3 +246,11 @@ mine.long$Features_upd <- factor(mine.long$Features_upd, levels = c('W3D1...W3L1
                                                             'C29','M1a...M2','C35','C36','F.midi.ON','alpha.OFF.T...alpha.ON.T',
                                                             'alpha.OFF.S','alpha.ON.S.M4...alpha.ON.T'
 ))
+
+#order reverse
+ggplot(mine.long, aes(x = reorder(Features_upd, desc(Features_upd)), y = Features, fill = Amount)) +
+    geom_tile(color = "black",
+              lwd = 1,linetype = 1) +
+    scale_fill_gradient2(low = "white",
+                         mid = "white",
+                         high = "#FF0000") + theme_bw() + coord_fixed() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
