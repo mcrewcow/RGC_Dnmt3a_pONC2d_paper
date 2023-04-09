@@ -7,3 +7,4 @@ The analysis includes: <br />
 3. CellChat analysis for predicting cell communications <br />
 
 The datasets are available under the following GEO numbers: <br />
+-Bulk[https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE229033]
