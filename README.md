@@ -6,5 +6,7 @@ The analysis includes: <br />
 2. RGC subtypes annotation and visualization <br />
 3. CellChat analysis for predicting cell communications <br />
 
-The datasets are available under the following GEO numbers: <br />
--Bulk[https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE229033]
+The sequencing datasets are available under the following GEO numbers: <br />
+-[Bulk](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE229033) <br />
+-[Bisulfite](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE229034) <br />
+-[Single-nuclei RNA seq](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE228627) <br>
