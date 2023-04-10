@@ -15,6 +15,6 @@ If you would like to get the access to the datasets before they get public, or\
 If you have any questions regarding the data, analysis or further improvements, here are the contacts: <br />
 ekriukov@meei.harvard.edu - Bioinformatics + data availability\
 wailydia_tai@meei.harvard.edu - Contributing author\
-dongfeng_chen@meei.harvard.edu - PI\
+dongfeng_chen@meei.harvard.edu - PI
 
 *title - 
