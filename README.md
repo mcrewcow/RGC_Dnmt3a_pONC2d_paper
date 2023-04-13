@@ -1,4 +1,4 @@
-# *Dnmt3a conditional knockout (cKO) retinal ganglion cells at 2 days post optic nerve crush
+# *Dnmt3a conditional knockout of retinal ganglion cells at 2 days post optic nerve crush
 *Collaboration project with Dong Feng Chen lab on post optic nerve crush RGC regeneration
 
 The analysis includes: <br />
