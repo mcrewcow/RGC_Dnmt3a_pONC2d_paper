@@ -1,4 +1,4 @@
-# *Dnmt3a conditional knockout of retinal ganglion cells at 2 days post optic nerve crush
+# Unlocking the Epigenetic Switch of Regeneration by Targeted Suppression of DNMT3a in Retinal Ganglion Cells Restores Vision in Adult Mice with Optic Nerve Injury
 *Collaboration project with Dong Feng Chen lab on post optic nerve crush RGC regeneration
 
 The analysis includes: <br />
