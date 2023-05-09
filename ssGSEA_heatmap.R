@@ -63,3 +63,13 @@ p1 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) +
     p4 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
     p5 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
     p6 + plot_layout(ncol = 1)
+
+axdev <- aggregate(lyd_RGC$GOBP_AXON_DEVELOPMENT, list(lyd_RGC$annotation), FUN = mean)
+fun_range <- function(x) {                              # Create user-defined function
+    (x - min(x)) / (max(x) - min(x))}
+axdev$x <- fun_range(x = axdev$x)                        # Scale to 0/1
+head(axdev)  
+
+library(tidyverse)
+dflist = list(axinj,regax,opnm,neudeath,dendrex,axdev)
+total <- dflist %>% reduce(inner_join, by = 'Group.1')
