@@ -64,7 +64,7 @@ p1 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) +
     p5 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
     p6 + plot_layout(ncol = 1)
 
-axdev <- aggregate(lyd_RGC$GOBP_AXON_DEVELOPMENT, list(lyd_RGC$annotation), FUN = mean)
+axdev <- aggregate(lyd_RGC$GOBP_AXON_DEVELOPMENT, list(lyd_RGC$annotation, lyd_RGC$background), FUN = mean)
 fun_range <- function(x) {                              # Create user-defined function
     (x - min(x)) / (max(x) - min(x))}
 axdev$x <- fun_range(x = axdev$x)                        # Scale to 0/1
@@ -73,3 +73,17 @@ head(axdev)
 library(tidyverse)
 dflist = list(axinj,regax,opnm,neudeath,dendrex,axdev)
 total <- dflist %>% reduce(inner_join, by = 'Group.1')
+
+total$regenfinal <- total$x.y + total$x.x.x + total$x.y.y.y + total$x.x.x.x
+total$injury <- total$x.x + total$x.y.y
+total$regenfinal_new <- fun_range(x = total$regenfinal) 
+total$injury_new <- fun_range(x = total$injury) 
+
+library(tidyr)
+library(dplyr)
+test <- axinj %>% select(Group.1, regenfinal_new, injury_new, Group.2) %>%
+    pivot_longer(., cols = c(regenfinal_new, injury_new), names_to = "Var", values_to = "Val")
+    
+ggplot(test, aes(x = reorder(Group.1, +Val), y = Val, fill = Group.2, color = Group.2, group = Group.2)) +
+geom_point() + geom_line() + theme_bw() + coord_flip() + facet_wrap(~Var)
+   
