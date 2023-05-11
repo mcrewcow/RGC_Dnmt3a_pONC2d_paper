@@ -87,3 +87,9 @@ test <- axinj %>% select(Group.1, regenfinal_new, injury_new, Group.2) %>%
 ggplot(test, aes(x = reorder(Group.1, +Val), y = Val, fill = Group.2, color = Group.2, group = Group.2)) +
 geom_point() + geom_line() + theme_bw() + coord_flip() + facet_wrap(~Var)
    
+#upon doing escape analysis for inflammatory, same merging and normalizing   
+testnew <- test %>% select(Group.1.x, regenfinal_new, injury_new, infl, Group.2.x) %>%
+    pivot_longer(., cols = c(regenfinal_new, injury_new, infl), names_to = "Var", values_to = "Val")
+    
+ggplot(testnew, aes(x = reorder(Group.1.x, +Val), y = Val, fill = Group.2.x, color = Group.2.x, group = Group.2.x)) +
+    geom_point() + geom_line() + theme_bw() + coord_flip() + facet_wrap(~Var)
