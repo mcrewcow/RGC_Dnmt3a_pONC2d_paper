@@ -93,3 +93,23 @@ testnew <- test %>% select(Group.1.x, regenfinal_new, injury_new, infl, Group.2.
     
 ggplot(testnew, aes(x = reorder(Group.1.x, +Val), y = Val, fill = Group.2.x, color = Group.2.x, group = Group.2.x)) +
     geom_point() + geom_line() + theme_bw() + coord_flip() + facet_wrap(~Var)
+
+#for inflammatory pathways
+axdev <- aggregate(lyd_RGC$GOBP_AXON_DEVELOPMENT, list(lyd_RGC$annotation, lyd_RGC$background), FUN = mean)
+p1 <- ggplot(p, aes(x = Group.1, y = Group.2, fill= x)) +
+    geom_tile(color = "black",
+              lwd = 1,linetype = 1) +
+    scale_fill_gradient2(low = "#075AFF",
+                         mid = "white",
+                         high = "#FF0000", midpoint =2400) + theme_bw() + coord_fixed() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+                         
+                        
+#same for other pathways
+p1 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
+    p2 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
+    p3 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
+    p4 +  theme(axis.text.x=element_blank(),axis.title.x = element_blank()) + 
+    p5 + plot_layout(ncol = 1)
+
+#order is: GOBP_ACUTE_INFLAMMATORY_RESPONSE, GOBP_CYTOKINE_PRODUCTION_INVOLVED_IN_INFLAMMATORY_RESPONSE, GOBP_INFLAMMASOME_COMPLEX_ASSEMBLY,
+#GOBP_INFLAMMATORY_RESPONSE,GOBP_NEUROINFLAMMATORY_RESPONSE
