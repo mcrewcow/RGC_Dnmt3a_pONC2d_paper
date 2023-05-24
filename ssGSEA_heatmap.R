@@ -1,6 +1,7 @@
 library(ggplot2)
 library(ggpubr)
 library(escape)
+library(patchwork)
 
 gene.sets1 <- getGeneSets(library = "C5", gene.sets = c("GOBP_NEURON_DEATH",'GOBP_DENDRITE_EXTENSION','GOBP_OPTIC_NERVE_MORPHOGENESIS',
                                                         'GOBP_AXON_DEVELOPMENT','GOBP_REGULATION_OF_AXONOGENESIS','GOBP_RESPONSE_TO_AXON_INJURY'),
