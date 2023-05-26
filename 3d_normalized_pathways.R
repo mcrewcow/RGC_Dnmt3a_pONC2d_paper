@@ -60,10 +60,13 @@ final_ko$delta_regen_new <- final_ko$regenfinal_new - final_wt$regenfinal_new
 library(plotly)
 
 fig <- plot_ly(final_ko, x = ~delta_injury_new, y = ~delta_infl_new, z = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
+    add_markers() #wo relabeling
+
+fig <- plot_ly(final_ko, x = ~delta_injury_new, y = ~delta_infl_new, z = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
     add_markers() %>% 
-    layout(scene = list(xaxis = list(title = "Δ regeneration", zerolinewidth=4, zerolinecolor='black'),
+    layout(scene = list(xaxis = list(title = "Δ injury", zerolinewidth=4, zerolinecolor='black'),
                         yaxis = list(title = "Δ inflammation",zerolinewidth=4, zerolinecolor='black'),
-                        zaxis = list(title = "Δ injury",zerolinewidth=4, zerolinecolor='black')))
+                        zaxis = list(title = "Δ regeneration",zerolinewidth=4, zerolinecolor='black')))
 fig
 
 htmlwidgets::saveWidget(
