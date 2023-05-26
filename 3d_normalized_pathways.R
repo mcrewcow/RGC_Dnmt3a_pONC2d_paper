@@ -74,3 +74,42 @@ widget = fig, #the plotly object
 file = "C://Users/Emil/Downloads/figure.html", #the path & file name
 selfcontained = TRUE #creates a single html file
 )
+
+
+install.packages("webshot")
+library(webshot)
+
+final_ko_test$Group.1 <- as.character(final_ko_test$Group.1)
+final_ko_test$Group.1[final_ko_test$Group.1 == 'U-3'] <- 'ooDGSC-D/V_2'
+final_ko_test$Group.1[final_ko_test$Group.1 == 'U-2'] <- 'C8_2'
+final_ko_test$Group.1[final_ko_test$Group.1 == 'U-1'] <- 'C19_2'
+final_ko_test$Group.1[final_ko_test$Group.1 == 'C5'] <- 'J-RGC'
+final_ko_test$Group.1[final_ko_test$Group.1 == 'T-RGC novel | C5'] <- 'T-RGC novel | J-RGC'
+
+fig <- plot_ly(final_ko_test, x = ~delta_injury_new, y = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
+  add_markers() %>% 
+  layout(scene = list(xaxis = list(title = "Δ injury", zerolinewidth=4, zerolinecolor='black'),
+                      yaxis = list(title = "Δ regeneration",zerolinewidth=4, zerolinecolor='black')))
+fig
+
+m <- list(
+  l = 50,
+  r = 50,
+  b = 100,
+  t = 100,
+  pad = 4
+)
+
+fig <- plot_ly(final_ko_test, x = ~delta_injury_new, y = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
+  add_markers() %>% 
+  layout(scene = list(xaxis = list(title = "Δ injury", zerolinewidth=4, zerolinecolor='black'),
+                      yaxis = list(title = "Δ regeneration",zerolinewidth=4, zerolinecolor='black')),autosize = F, width = 600, height = 700, margin = m)
+fig
+
+fig <- plot_ly(final_ko_test, x = ~delta_infl_new, y = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
+  add_markers() %>% 
+  layout(scene = list(xaxis = list(title = "Δ inflammation", zerolinewidth=4, zerolinecolor='black'),
+                      yaxis = list(title = "Δ regeneration",zerolinewidth=4, zerolinecolor='black')),autosize = F, width = 600, height = 700, margin = m)
+fig
+
+export(fig, "C://Users/Emil/Downloads/2d_inj_reg_final.pdf") #and others
