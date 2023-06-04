@@ -86,6 +86,31 @@ final_ko_test$Group.1[final_ko_test$Group.1 == 'U-1'] <- 'C19_2'
 final_ko_test$Group.1[final_ko_test$Group.1 == 'C5'] <- 'J-RGC'
 final_ko_test$Group.1[final_ko_test$Group.1 == 'T-RGC novel | C5'] <- 'T-RGC novel | J-RGC'
 final_ko_test$Group.1[final_ko_test$Group.1 == 'T-RC-S1 | T-RGC-S2'] <- 'T-RGC-S1 | T-RGC-S2'
+final_ko_test$Group.1[final_ko_test$Group.1 == 'ooDGSC-D/V_2'] <- 'ooDSGC-D/V_2'
+
+final_ko_test1$Group.1 <- factor(final_ko_test1$Group.1, levels = c('C10', 'C11', 'C14', 'C15','C18 | C37',
+                                                                    'C19','C19_2','C24','C25 | C34', 'C29','C35',
+                                                                    'C36','C7','C8','C8_2','F-midi-OFF','F-midi-ON',
+                                                                    'F-mini-OFF','F-mini-ON','M1a | M2','M1b | C27','MX | C37',
+                                                                    'T-RGC novel | J-RGC','T-RGC-S1 | T-RGC-S2','W3B','W3D1','W3D1 | W3L1',
+                                                                    'W3D2 | W3D3','W3L2 | F-RGC-novel | C44 | C35','alpha OFF-S',
+                                                                    'alpha OFF-T | alpha ON-T', 'alpha ON-S/M4 | alpha ON-T','ooDGSC-D/V_2',
+                                                                    'ooDSGC-D/V','ooDSGC-N'))
+
+
+lyd_RGC <- SetIdent(lyd_RGC, value = 'annotation') #dimplot to check the color palette
+
+library(scales)
+show_col(hue_pal()(35))
+
+fig <- plot_ly(final_ko_test1, x = ~delta_injury_new, y = ~delta_infl_new, z = ~delta_regen_new, color = ~Group.1, colors = c('#F365E6','#E76BF3','#00C094','#D774FD','#53B400','#A58AFF','#E88523','#8195FF','#A3A500','#B4A000','#75AF00','#00B0F6','#FF61C5','#FB61D7','#F17E4F','#00BECD','#00A8FF','#FF699D','#FD6F86','#00B6EB','#00C0BB','#00B70C','#C49A00','#00BF7D','#FF64B2','#DE8C00','#D29300','#00BBDD','#8EAB00','#4B9FFF','#00BB45','#00BD64','#F8766D','#C17FFF','#00C1A8'), text = final_ko_test1$Group.1)  %>% 
+    add_markers() %>% 
+    layout(scene = list(xaxis = list(title = "Δ injury", zerolinewidth=4, zerolinecolor='black'),
+                        yaxis = list(title = "Δ inflammation",zerolinewidth=4, zerolinecolor='black'),
+                        zaxis = list(title = "Δ regeneration",zerolinewidth=4, zerolinecolor='black')))
+fig
+
+
 
 fig <- plot_ly(final_ko_test, x = ~delta_injury_new, y = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
   add_markers() %>% 
