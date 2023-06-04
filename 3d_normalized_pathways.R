@@ -85,6 +85,7 @@ final_ko_test$Group.1[final_ko_test$Group.1 == 'U-2'] <- 'C8_2'
 final_ko_test$Group.1[final_ko_test$Group.1 == 'U-1'] <- 'C19_2'
 final_ko_test$Group.1[final_ko_test$Group.1 == 'C5'] <- 'J-RGC'
 final_ko_test$Group.1[final_ko_test$Group.1 == 'T-RGC novel | C5'] <- 'T-RGC novel | J-RGC'
+final_ko_test$Group.1[final_ko_test$Group.1 == 'T-RC-S1 | T-RGC-S2'] <- 'T-RGC-S1 | T-RGC-S2'
 
 fig <- plot_ly(final_ko_test, x = ~delta_injury_new, y = ~delta_regen_new,  color = ~Group.1, text = final_ko$Group.1)  %>% 
   add_markers() %>% 
