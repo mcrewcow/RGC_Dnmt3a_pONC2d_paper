@@ -103,7 +103,11 @@ lyd_RGC <- SetIdent(lyd_RGC, value = 'annotation') #dimplot to check the color p
 library(scales)
 show_col(hue_pal()(35))
 
-fig <- plot_ly(final_ko_test1, x = ~delta_injury_new, y = ~delta_infl_new, z = ~delta_regen_new, color = ~Group.1, colors = c('#F365E6','#E76BF3','#00C094','#D774FD','#53B400','#A58AFF','#E88523','#8195FF','#A3A500','#B4A000','#75AF00','#00B0F6','#FF61C5','#FB61D7','#F17E4F','#00BECD','#00A8FF','#FF699D','#FD6F86','#00B6EB','#00C0BB','#00B70C','#C49A00','#00BF7D','#FF64B2','#DE8C00','#D29300','#00BBDD','#8EAB00','#4B9FFF','#00BB45','#00BD64','#F8766D','#C17FFF','#00C1A8'), text = final_ko_test1$Group.1)  %>% 
+fig <- plot_ly(final_ko_test1, x = ~delta_injury_new, y = ~delta_infl_new, z = ~delta_regen_new, color = ~Group.1, colors = c('#F365E6','#E76BF3','#00C094',
+                                    '#D774FD','#53B400','#A58AFF','#E88523','#8195FF','#A3A500','#B4A000','#75AF00','#00B0F6',
+                                    '#FF61C5','#FB61D7','#F17E4F','#00BECD','#00A8FF','#FF699D','#FD6F86','#00B6EB','#00C0BB',
+                                    '#00B70C','#C49A00','#00BF7D','#FF64B2','#DE8C00','#D29300','#00BBDD','#8EAB00','#4B9FFF','#00BB45','#00BD64',
+                                    '#F8766D','#C17FFF','#00C1A8'), text = final_ko_test1$Group.1)  %>% 
     add_markers() %>% 
     layout(scene = list(xaxis = list(title = "Δ injury", zerolinewidth=4, zerolinecolor='black'),
                         yaxis = list(title = "Δ inflammation",zerolinewidth=4, zerolinecolor='black'),
