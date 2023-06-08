@@ -3,9 +3,11 @@ Collaboration project with Dong Feng Chen lab on post optic nerve crush RGC rege
 Limited regenerative potential of the optic nerve in adult mammals presents a challenge for restoring vision after optic nerve trauma or disease. The mechanisms behind this blockade of regeneration are not fully understood. Here through small-molecule and genetic screening for epigenetic modulators, we identified DNA methyltransferase 3a (DNMT3a) as a potent inhibitor of optic nerve regeneration. By suppressing DNMT3a selectively in retinal ganglion cells (RGCs) using gene targeting or therapeutic delivery of AAV-shRNA, we observed robust and functional optic nerve regeneration into the brain and restoration of vision in adult mice with traumatic nerve injury. Analyses with single-cell RNA sequencing and genome-wide bisulfate and transcriptome profiling revealed that DNMT3a deficiency resulted in demethylation and reactivation of gene networks mediating optic nerve growth in various subsets of RGCs, while simultaneously deactivating axon growth-inhibitory transcriptomes and inflammatory and cell death signals. Our results identify DNMT3a as a key regulator in RGC-intrinsic inhibitory machinery that limits the genetic program of optic nerve regeneration. Transient DNMT3a inhibition unlocks the epigenetic switch for optic nerve regeneration and represents a promising therapeutic strategy for promoting optic nerve regeneration and reversing vision loss.
 
 The analysis includes: <br />
-1. Datasets processing annotation <br />
-2. RGC subtypes annotation and visualization <br />
-3. CellChat analysis for predicting cell communications <br />
+1. Datasets processing - standard Seurat processing, [GSEA pathway analysis](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/ssGSEA_heatmap.R), [Pathways into patterns normalization and 3D](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/3d_normalized_pathways.R), [Volcano plot](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/volcano_sc.R)  <br />
+2. RGC subtypes annotation and visualization - [Subtypes heatmap](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/heatmap_subtypes.R) <br />
+3. CellChat analysis for predicting cell communications - [Cellchat analysis](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/cellchat.R) <br />
+4. Bisulfite data visualization - [Plots](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/bisulfite.R) <br />
+5. Bulk data analysis - [GSEA](https://github.com/mcrewcow/RGC_Dnmt3a_pONC2d_paper/blob/main/GSEA_bulk.R) <br />
 
 The sequencing datasets are available under the following GEO numbers: <br />
 -[Bulk](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE229033) <br />
