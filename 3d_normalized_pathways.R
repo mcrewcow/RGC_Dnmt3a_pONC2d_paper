@@ -26,6 +26,7 @@ infre$infre <- fun_range(x = infre$x)
 neure <- aggregate(lyd_RGC$GOBP_NEUROINFLAMMATORY_RESPONSE, list(lyd_RGC$annotation, lyd_RGC$background), FUN = mean)
 neure$neure <- fun_range(x = neure$x) 
 
+#generate the dataframe
 final <- dende
 final$regax <- regax$regax
 final$opnm <- opnm$opnm
