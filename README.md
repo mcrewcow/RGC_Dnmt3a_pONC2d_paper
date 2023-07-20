@@ -1,5 +1,6 @@
 # Unlocking the Epigenetic Switch of Regeneration by Targeted Suppression of DNMT3a in Retinal Ganglion Cells Restores Vision in Adult Mice with Optic Nerve Injury
 ![Metrics](https://github.com/mcrewcow/mcrewcow/blob/main/metrics.repository2.svg) <br />
+<br />
 Collaboration project with Dong Feng Chen lab on post optic nerve crush RGC regeneration. <br />
 Limited regenerative potential of the optic nerve in adult mammals hinders vision restoration after optic nerve trauma or disease. We identified DNA methyltransferase 3a (DNMT3a) as a potent inhibitor of optic nerve regeneration. Selective suppression of DNMT3a in the retinal ganglion cells (RGCs) promoted robust and functional optic nerve regeneration into the brain, restoring vision in adult mice with traumatic nerve injury. Analyses of DNMT3a deficient RGCs with single-nuclei RNA sequencing, genome-wide bisulfite and bulk RNA profiling revealed demethylation and reactivation of axon growth-related gene networks, while simultaneously deactivating the neurodegenerative signals in various subsets of RGCs.
 
