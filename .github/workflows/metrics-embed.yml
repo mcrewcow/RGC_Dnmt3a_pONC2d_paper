@@ -1,0 +1,11 @@
+name: Metrics
+uses: lowlighter/metrics@latest
+with:
+  template: repository
+  filename: metrics.repository.svg
+  token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
+  user: mcrewcow
+  repo: RGC_Dnmt3a_pONC2d_paper
+  plugin_lines: yes
+  plugin_followup: yes
+  plugin_projects: yes
