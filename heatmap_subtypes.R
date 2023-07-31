@@ -254,3 +254,13 @@ ggplot(mine.long, aes(x = reorder(Features_upd, desc(Features_upd)), y = Feature
     scale_fill_gradient2(low = "white",
                          mid = "white",
                          high = "#FF0000") + theme_bw() + coord_fixed() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+
+
+#statistics for PTEN
+library(ggpubr)
+test_sign = list(c("DFcKO", "WT"))
+VlnPlot(lyd_RGC, features = c('Pten'),
+        pt.size = 0.1, 
+        group.by = "background", y.max = 4
+) + facet_wrap(~lyd_RGC$annotation) + stat_compare_means(comparisons = test_sign, label = "p.signif", method = 't.test')
