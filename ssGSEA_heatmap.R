@@ -11,6 +11,7 @@ gene.sets1 <- getGeneSets(library = "C5", gene.sets = c("GOBP_NEURON_DEATH",'GOB
 ES <- enrichIt(obj = lyd_RGC, 
                gene.sets = gene.sets1, 
                groups = 1000, cores = 8)
+lyd_RGC <- AddMetaData(lyd_RGC, ES)
 ES2 <- data.frame(lyd_RGC[[]], Idents(lyd_RGC))
 colnames(ES2)[ncol(ES2)] <- "cluster"
 
