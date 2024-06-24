@@ -66,3 +66,22 @@ testnew <- final %>% select(Group.1, injury_new, inflam_new, Group.2) %>%
 head(testnew)
 ggplot(testnew, aes(x = reorder(Group.1, +Val), y = Val, fill = Group.2, color = Group.2, group = Group.2)) +
   geom_point() + geom_line() + theme_bw() + coord_flip() + facet_wrap(~Var)
+
+
+VlnPlot(lydia, features = "percent.mt", split.by = "background")
+
+df <- FetchData(lydia, vars = c("percent.mt", "anno2", "background"))
+
+head(df)
+df$background <- factor(df$background, levels = c("WT", "DFcKO"))
+
+ggplot(df, aes(x = anno2, y = percent.mt, fill = background)) +
+  geom_violin(scale = "width", trim = FALSE) +
+  theme_minimal() +
+  labs(
+    title = "Violin Plot of percent.mt",
+    x = "Annotation (anno2)",
+    y = "Percent Mitochondrial (percent.mt)"
+  ) +
+  scale_fill_brewer(palette = "Set3") + # Optional: to change the color palette
+  scale_y_continuous(limits = c(0, 40))
